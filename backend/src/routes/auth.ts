@@ -3,6 +3,8 @@ import  bcrypt  from 'bcryptjs';
 import express, {Request, Response} from 'express';
 import { check, validationResult } from 'express-validator';
 import User from '../models/user';
+console.log("JWT Secret Key:", process.env.JWT_SECRET_KEY);
+
 const router = express.Router();
 router.post("/login", [check("email", "Email is required").isEmail(), 
 
@@ -46,5 +48,8 @@ router.post("/login", [check("email", "Email is required").isEmail(),
 console.log(error);
 res.status(500).json({message: "Something went wrong"});
     }
+    });
+    router.get("/", (req: Request, res: Response) => {
+        res.status(200).json({ message: "Auth route is working" });
     });
 export default router;
