@@ -42,7 +42,7 @@ router.post("/login", [check("email", "Email is required").isEmail(),
             secure: process.env.NODE_ENV === "production",
             maxAge: 86400000,
         });
-        res.status(200).json({userId: user._id})
+        res.status(200).send({message: "User registered OK"});
     }
     catch(error){
 console.log(error);

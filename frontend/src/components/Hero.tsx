@@ -1,13 +1,22 @@
-const Hero = ()=>{
-    return(
-        <div className="bg-cyan-800 pb-16">
-            <div className="container mx-auto flex flex-col gap-2">
-                <h1 className="text-5xl text-white font-bold">Find your next stay</h1>
-                <p className="text-2xl text-white">Search low prices on hotels for your dream vacation...</p>
-                
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaPlane } from 'react-icons/fa'; // Uçak ikonu import et
+import './Hero.css'; // Stil dosyasını import et
 
-            </div>
-        </div>
-    )
+const Hero: React.FC = () => {
+  return (
+    <div className="hero-container">
+      <div className="link-container">
+        <Link to="/link1" className="hero-link">Link 1</Link>
+        <Link to="/link2" className="hero-link">
+          <FaPlane className="icon" /> Flights
+        </Link>
+        <Link to="/link3" className="hero-link">Link 3</Link>
+        <Link to="/link4" className="hero-link">Link 4</Link>
+        <Link to="/link5" className="hero-link">Link 5</Link>
+      </div>
+    </div>
+  );
 }
+
 export default Hero;
