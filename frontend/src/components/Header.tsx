@@ -1,33 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaCog } from 'react-icons/fa'; // İkonu import edin
+import { FaCog, FaBars } from 'react-icons/fa'; // FaBars'ı ekleyin
+import './header.css'; // CSS dosyasını import et
 
-const Header = () => {
+const Header: React.FC = () => {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false); // Kullanıcı oturum durumunu kontrol etmek için
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Menü açık/kapalı durumunu kontrol eden state
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false); 
     const location = useLocation();
     const navigate = useNavigate();
 
-    // Sayfanın yolunu kontrol et
     const isAuthPage = location.pathname === '/signin' || location.pathname === '/register';
-    const isSignInPage = location.pathname === '/signin';
 
     useEffect(() => {
-        // Burada, oturum durumunu kontrol etmek için gerekli işlevselliği ekleyebilirsiniz.
-        // Örneğin: API çağrısı yaparak oturum durumunu kontrol edebilirsiniz.
-
-        // Örnek: localStorage'dan oturum durumunu kontrol etme
         const userLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         setIsUserLoggedIn(userLoggedIn);
     }, []);
 
     const handleSignOut = () => {
-        // Kullanıcıyı çıkış yaparken buraya gerekli işlevselliği ekleyebilirsiniz
-        // Örneğin: kullanıcı oturumunu sonlandırmak için API çağrısı yapılabilir
-
-        localStorage.setItem('isLoggedIn', 'false'); // localStorage'dan oturum durumunu güncelle
-        setIsUserLoggedIn(false); // Kullanıcı oturumunu kapat
-        navigate('/signin'); // Sign In sayfasına yönlendir
+        localStorage.setItem('isLoggedIn', 'false');
+        setIsUserLoggedIn(false);
+        navigate('/signin');
     };
 
     const handleSignIn = () => {
@@ -42,50 +35,62 @@ const Header = () => {
         setIsSettingsOpen(!isSettingsOpen);
     };
 
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const title = "UnexpectedJourney.com";
+    
     return (
         <div className="bg-blue-800 py-6">
-            <div className="container mx-auto flex justify-between items-center relative">
-                <span className="text-3xl text-white font-bold tracking-tight">
-                    <Link to="/">UnexpectedJourney.com</Link>
-                </span>
-                <span className="flex space-x-2 items-center">
-                    {/* Ayarlar ikonunu ve metnini ekleyin */}
-                    <button
-                        className="flex items-center text-white hover:underline relative"
-                        onClick={toggleSettings}
-                    >
-                        <FaCog className="mr-1 text-xl" /> {/* İkonu buraya ekleyin */}
-                        Settings
-                    </button>
+            <div className="container mx-auto flex items-center relative">
+                <div className="flex items-center space-x-4">
+                    <Link to="/" className="flex items-center space-x-2">
+                        <img src="/images/logo2.png" alt="Logo" className="logo" />
+                    </Link>
+                </div>
+                <div className="flex-1 flex justify-center">
+                    <span className="text-3xl text-white font-bold tracking-tight flex">
+                        {title.split('').map((char, index) => (
+                            <span
+                                key={index}
+                                className="animate-fade-in-out"
+                                style={{ animationDelay: `${index * 0.1}s` }}
+                            >
+                                {char}
+                            </span>
+                        ))}
+                    </span>
+                </div>
+                <div className="flex space-x-4 items-center">
                     {!isAuthPage && (
-                        // Kullanıcı oturum açmamışsa Sign In ve Sign Up butonlarını göster
                         !isUserLoggedIn ? (
                             <>
                                 <button
-                                    className="flex bg-white items-center text-blue-600 px-3 font-bold hover:bg-gray-100"
+                                    className="flex items-center text-blue-600 bg-white px-4 py-2 font-bold rounded-full hover:bg-gray-100 transition-transform duration-300 transform hover:scale-105 animate-bounce"
                                     onClick={handleSignIn}
                                 >
                                     Sign In
                                 </button>
                                 <button
-                                    className="flex bg-white items-center text-blue-600 px-3 font-bold hover:bg-gray-100"
+                                    className="flex items-center text-blue-600 bg-white px-4 py-2 font-bold rounded-full hover:bg-gray-100 transition-transform duration-300 transform hover:scale-105 animate-bounce"
                                     onClick={handleSignUp}
                                 >
                                     Sign Up
                                 </button>
                             </>
-                        ) : (
-                            // Kullanıcı oturum açmışsa Sign Out butonunu göster
-                            <button
-                                className="flex bg-white items-center text-blue-600 px-3 font-bold hover:bg-gray-100"
-                                onClick={handleSignOut}
-                            >
-                                Sign Out
-                            </button>
-                        )
+                        ) : null
                     )}
+                   
+                    <button
+                        className="flex items-center text-white hover:none relative transition-transform duration-300 transform hover:scale-110"
+                        onClick={toggleMenu}
+                    >
+                        <FaBars className="mr-1 text-xl" />
+                        Menu
+                    </button>
                     {isSettingsOpen && (
-                        <div className="absolute right-0 top-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-48">
+                        <div className="absolute right-0 top-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-48 animate-fade-in">
                             <div className="p-4">
                                 <h3 className="text-lg font-bold">Settings</h3>
                                 <ul className="mt-2">
@@ -101,7 +106,22 @@ const Header = () => {
                             </div>
                         </div>
                     )}
-                </span>
+                    {isMenuOpen && (
+                        <div className="menu">
+                            <div className="p-4">
+                                <h3 className="text-lg font-bold">Menu</h3>
+                                <ul className="mt-2">
+                                    <li><Link to="/" className="block py-2 px-4 hover:bg-gray-100">Home</Link></li>
+                                    <li><Link to="/search/search-flight" className="block py-2 px-4 hover:bg-gray-100">Search Flights</Link></li>
+                                    <li><Link to="/search/search-hotel" className="block py-2 px-4 hover:bg-gray-100">Search Hotels</Link></li>
+                                    <li><Link to="/faq" className="block py-2 px-4 hover:bg-gray-100">FAQ</Link></li>
+                                    <li><Link to="/privacy-policy" className="block py-2 px-4 hover:bg-gray-100">Privacy Policy</Link></li>
+                                    <li><Link to="/terms-of-service" className="block py-2 px-4 hover:bg-gray-100">Terms of Service</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

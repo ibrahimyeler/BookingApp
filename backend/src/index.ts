@@ -1,30 +1,43 @@
-import express, { Request, Response } from 'express';
+// src/index.ts
+import express from 'express';
 import cors from 'cors';
-import "dotenv/config";
 import mongoose from 'mongoose';
+import "dotenv/config";
 import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
-
-// MongoDB bağlantısı
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
-
-
-
+import hotelRoutes from './routes/hotelRoutes';
+import rentACarRoutes from './routes/rentACarRoutes';
+import flightRoutes from './routes/flightRoutes';
+import culturalTourRoutes from './routes/culturalTourRoutes';
+import abroadTourRoutes from './routes/abroadTourRoutes'; // Abroad Tours rotalarını ekledik
+import connectDB from './config/db';
 
 const app = express();
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/api/auth", authRoutes)
-app.use("/api/users", userRoutes);
+// Routes
+app.use('/api/hotels', hotelRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/rentacar', rentACarRoutes);
+app.use('/api/flights', flightRoutes);
+app.use('/api/culturaltours', culturalTourRoutes);
+app.use('/api/abroadtours', abroadTourRoutes); // Abroad Tours rotalarını ekledik
 
-// Sunucuyu başlat
-app.listen(7000, () => {
-    console.log("Server is running on localhost:7000");
+// MongoDB connection
+connectDB();
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-app.get('/api/test', (req: Request, res: Response) => {
-    res.send('API is working!');
+
+// Test endpoint
+app.get('/api/test', (req, res) => {
+  res.send('API is working!');
 });

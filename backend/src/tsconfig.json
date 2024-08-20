@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",                  // JavaScript çıkış hedefi
+      "module": "commonjs",                // Modül sistemi (CommonJS, ESNext vs.)
+      "strict": true,                      // Sıkı tip denetimi
+      "esModuleInterop": true,             // ES modülleriyle uyumluluk
+      "skipLibCheck": true,                // Kütüphane dosyalarını kontrol etmeyi atla
+      "forceConsistentCasingInFileNames": true, // Dosya adlarındaki büyük/küçük harf tutarlılığı
+      "outDir": "./dist"                   // Derlenen JavaScript dosyalarının çıkış dizini
+    },
+    "include": ["src/**/*.ts"],            // Derlenecek dosya ve dizinler
+    "exclude": ["node_modules"]            // Derlenmeyecek dizinler
+  }
+  

@@ -1,8 +1,8 @@
 const PrivacyPolicy = () => {
     return (
         <div className="container mx-auto py-10">
-            <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
-            <p className="text-xl mb-4">Last Updated: [Update Date]</p>
+         <div> <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
+            <p className="text-xl mb-4">Last Updated: 17/08/2024</p></div>  
             <h2 className="text-2xl font-bold mb-2">1. Collection of Personal Information</h2>
             <p className="mb-4">
                 This Privacy Policy describes how [Company Name] collects, uses, and protects your personal information. We may collect the following personal information when you make hotel reservations or use our website:

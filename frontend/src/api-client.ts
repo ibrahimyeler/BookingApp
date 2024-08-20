@@ -1,30 +1,21 @@
-import { RegisterFormData } from "./pages/Register";
+// api-client.ts
 import axios from 'axios';
+import { RegisterFormData } from './pages/Register';
+import { SignInFormData } from './pages/SignIn';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// Temel URL ayarını yapmalısınız.
+axios.defaults.baseURL = 'http://localhost:5000';
 
-export const signIn = async (data: { email: string; password: string }) => {
-    const response = await axios.post(`${API_BASE_URL}/api/auth/login`, data);
+const apiClient = {
+  register: async (data: RegisterFormData) => {
+    const response = await axios.post('/api/users/register', data);
     return response.data;
-};
+  },
+  signIn: async (data: SignInFormData) => {
+    const response = await axios.post('/api/auth/login', data);
+    return response.data;
+  },
+}
 
-export const register = async (formData: RegisterFormData) => {
-    const response = await fetch(`${API_BASE_URL}/api/users/register`, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData),
-    });
 
-    const responseBody = await response.json();
-
-    if (!response.ok) {
-        throw new Error(responseBody.message);
-    }
-
-    return responseBody;
-};
-
-// Fonksiyonları dışa aktarmak
-export default { signIn, register };
+export default apiClient;

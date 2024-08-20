@@ -1,0 +1,70 @@
+/* Logo stilini ayarla */
+.logo {
+    width: 150px; /* Küçültülmüş genişlik */
+    height: 120px; /* Küçültülmüş yükseklik */
+    border-radius: 50%; /* Oval yapmak için */
+    object-fit: cover; /* Resmi kapsayıcıya uygun şekilde ölçeklendirir */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Geçiş efekti */
+}
+  
+/* Hover efekti ile büyütme ve gölge ekleme */
+.logo:hover {
+    transform: scale(1.1); /* Hover efekti sırasında büyütme */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Hover efekti sırasında gölge ekleme */
+    filter: brightness(1.2); /* Hover efekti sırasında parlaklık arttırma */
+}
+  
+/* Diğer animasyon sınıflarının yer aldığı bölüm */
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+  
+.animate-fade-in-out {
+    animation: fadeInOut 2s infinite;
+}
+  
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+  
+.animate-fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+/* Menü stilini ayarla */
+.menu {
+    width: 250px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Menü öğelerini stilize et */
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    border-bottom: 1px solid #eee;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #f0f0f0;
+}

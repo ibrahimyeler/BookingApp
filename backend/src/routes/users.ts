@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { check, validationResult } from 'express-validator'; // Eksik içe aktarımlar
-import User from '../models/user';
+import User from '../models/userModel';
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();

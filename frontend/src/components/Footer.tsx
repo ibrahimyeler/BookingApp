@@ -1,3 +1,39 @@
+// import React, { useState } from 'react'; // useState'i buradan import edin
+// import enTranslations from '../locales/en/translation.json';
+// import trTranslations from '../locales/tr/translation.json';
+// import esTranslations from '../locales/es/translation.json';
+
+// interface Translations {
+//   welcome: string;
+// }
+
+// const translations: Record<string, Translations> = {
+//   en: enTranslations,
+//   tr: trTranslations,
+//   es: esTranslations,
+// };
+
+// const Footer: React.FC = () => {
+//   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
+
+//   const handleLanguageChange = (lng: string) => {
+//     setSelectedLanguage(lng);
+//   };
+
+//   const currentTranslations = translations[selectedLanguage];
+
+//   return (
+//     <footer>
+//       <button onClick={() => handleLanguageChange('en')}>English</button>
+//       <button onClick={() => handleLanguageChange('tr')}>Türkçe</button>
+//       <button onClick={() => handleLanguageChange('es')}>Español</button>
+//       <p>{currentTranslations.welcome}</p>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
+
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';

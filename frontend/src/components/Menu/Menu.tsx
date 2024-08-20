@@ -1,11 +1,10 @@
-// src/components/Settings/Settings.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Settings: React.FC = () => {
+const Menu: React.FC = () => {
   return (
     <div className="p-4 max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Settings</h1>
+      <h1 className="text-4xl font-bold mb-6">Menu</h1>
 
       {/* User Profile and Account Settings */}
       <section className="mb-6">
@@ -76,4 +75,4 @@ const Settings: React.FC = () => {
   );
 };
 
-export default Settings;
+export default Menu;
