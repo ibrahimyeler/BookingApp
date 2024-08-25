@@ -1,0 +1,55 @@
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes backgroundChange {
+    0% {
+        background: linear-gradient(to right, #68ebf7, #317aba); 
+    }
+    20% {
+        background: linear-gradient(to right, #23303e, #2575fc); 
+    }
+    40% {
+        background: linear-gradient(to right, #00c6ff, #0072ff); 
+    }
+    60% {
+        background: linear-gradient(to right, #00c6ff, #0072ff); 
+    }
+    80% {
+        background: linear-gradient(to right, #ff7e5f, #feb47b); 
+    }
+    100% {
+        background: linear-gradient(to right, #ff7e5f, #feb47b); 
+    }
+}
+
+.header-background {
+    animation: backgroundChange 8s infinite; /* 8 saniye süren döngü, sürekli değişim */
+}
+
+.title-text {
+    display: inline-block;
+    font-size: 2rem; /* Yazı boyutunu ayarladık */
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize; /* Yazı stilini belirliyoruz (baş harf büyük) */
+    font-family: 'Roboto', sans-serif; /* Yazı tipi değişikliği */
+    letter-spacing: 0.05em; /* Harfler arasına biraz boşluk ekliyoruz */
+}
+
+.title-char {
+    display: inline-block;
+    animation: fadeInOut 2s infinite;
+    font-family: 'Roboto', sans-serif; /* Yazı tipi değişikliği */
+}
+
+.title-char:nth-child(odd) {
+    animation-delay: 0.5s; /* Harfler arasında gecikme */
+}

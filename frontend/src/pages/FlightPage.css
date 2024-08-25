@@ -1,0 +1,119 @@
+/* src/FlightsPage.css */
+.flights-container {
+    padding: 20px;
+    text-align: center;
+    position: relative; /* İçerik ile buton arasındaki konumu ayarlamak için */
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .header-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .animated-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff; /* Başlık rengi */
+    background: linear-gradient(45deg, #3498db, #e74c3c); /* Arka plan şeridi */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorChange 3s infinite; /* Animasyon */
+  }
+  
+  @keyframes colorChange {
+    0% {
+      color: #3498db;
+    }
+    50% {
+      color: #e74c3c;
+    }
+    100% {
+      color: #3498db;
+    }
+  }
+  
+  .search-container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column; /* Yazı ve buton dikey olarak hizalanacak */
+    align-items: center; /* Orta hizalama */
+  }
+  
+  .flight-search-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .flight-search-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #e74c3c; /* Buton arka plan rengi */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-button:hover {
+    background-color: #c0392b; /* Hover rengi */
+    transform: scale(1.05);
+  }
+  
+  .back-button-container {
+    position: absolute;
+    top: 10px;
+    left: -10px; /* Daha fazla sola kaydırmak için negatif değer kullanıldı */
+  }
+  
+  .back-to-home {
+    padding: 10px 20px; /* Arttırılmış yatay padding */
+    background-color: #3498db; /* Arka plan rengi */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .back-to-home:hover {
+    background-color: #2980b9; /* Hover rengi */
+    transform: scale(1.05);
+  }
+  

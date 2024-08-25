@@ -1,0 +1,15 @@
+.home-container {
+  background-image: url('/images/hero-bg.jpg'); /* Resim yolunu güncelle */
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Opaklık ekler */
+  padding: 2rem;
+  border-radius: 8px;
+}

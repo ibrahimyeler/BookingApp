@@ -1,0 +1,20 @@
+@keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  
+  .animate-fade-in-out {
+    display: inline-block;
+    animation: fadeInOut 3s ease-in-out infinite;
+  }
+  

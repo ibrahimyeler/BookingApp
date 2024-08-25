@@ -1,0 +1,73 @@
+.car-rental-container {
+    padding: 20px;
+    position: relative;
+  }
+  
+  .search-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .search-controls input {
+    padding: 5px;
+    width: 200px;
+  }
+  
+  .sort-controls {
+    margin-bottom: 20px;
+  }
+  
+  .sort-controls label {
+    margin-right: 10px;
+  }
+  
+  .sort-controls select {
+    padding: 5px;
+  }
+  
+  .car-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .car-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .car-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .car-info {
+    flex: 1;
+  }
+  
+  .car-rating {
+    margin-top: 5px;
+  }
+  
+  .rent-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rent-button:hover {
+    background-color: #0056b3;
+  }
+  

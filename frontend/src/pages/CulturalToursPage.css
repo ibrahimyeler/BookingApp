@@ -1,0 +1,11 @@
+/* src/pages/CulturalToursPage.css */
+.cultural-tours-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .cultural-tours-container h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  

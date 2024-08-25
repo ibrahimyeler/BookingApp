@@ -1,0 +1,46 @@
+.hero-container {
+  @apply p-6 rounded-xl bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400; /* Soft mavi tonlarda gradyan */
+  @apply shadow-lg border-2 border-blue-300; /* Mavi tonlarında çerçeve ve gölge */
+  @apply relative overflow-hidden max-w-full max-h-40 mx-auto flex items-center justify-center;
+}
+
+.link-container {
+  @apply gap-6 p-4 flex flex-wrap justify-center;
+}
+
+.hero-link {
+  @apply text-gray-800 text-center rounded-lg transition-all duration-300;
+  @apply p-6 bg-gradient-to-r from-red-400 via-red-500 to-red-600; /* Canlı renklerde arka plan gradyanı */
+  @apply shadow-lg transform hover:scale-110 hover:rotate-3; /* Hoverda daha fazla büyüme ve döndürme efekti */
+  @apply flex items-center space-x-4; /* Daha fazla alan ve yatay hizalama */
+}
+
+/* Her link için farklı renk gradyanı */
+.hero-link:nth-child(1) {
+  @apply bg-gradient-to-r from-green-400 via-green-500 to-green-600;
+}
+.hero-link:nth-child(2) {
+  @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600;
+}
+.hero-link:nth-child(3) {
+  @apply bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600;
+}
+.hero-link:nth-child(4) {
+  @apply bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600;
+}
+.hero-link:nth-child(5) {
+  @apply bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600;
+}
+
+/* Icon renkleri */
+.icon {
+  @apply text-5xl; /* İkon boyutunu artır */
+}
+
+.hero-link:hover .icon {
+  @apply text-white; /* Hoverda ikon rengini beyaz yap */
+}
+
+.tooltip {
+  @apply hidden;
+}
