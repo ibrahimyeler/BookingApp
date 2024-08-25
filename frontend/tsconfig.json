@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "target": "es6",
     "module": "commonjs",
     "jsx": "react",
@@ -10,4 +11,10 @@
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
+=======
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    // diğer seçenekler...
+  }
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
 }

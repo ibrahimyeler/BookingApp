@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 // src/pages/SignIn.tsx
 import React, { useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+=======
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useMutation } from 'react-query';
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
 import apiClient from '../api-client';
 
 export type SignInFormData = {
@@ -10,11 +16,18 @@ export type SignInFormData = {
   password: string;
 };
 
+<<<<<<< HEAD
 const SignIn: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors } } = useForm<SignInFormData>();
   const navigate = useNavigate();
+=======
+const SignIn = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { register, handleSubmit, formState: { errors } } = useForm<SignInFormData>();
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
 
   const mutation = useMutation(apiClient.signIn, {
     onSuccess: () => {
@@ -28,6 +41,7 @@ const SignIn: React.FC = () => {
     },
   });
 
+<<<<<<< HEAD
   const onSubmit: SubmitHandler<SignInFormData> = (data) => {
     mutation.mutate(data);
   };
@@ -42,12 +56,24 @@ const SignIn: React.FC = () => {
     }
   }, [isSubmitted, navigate]);
 
+=======
+  const onSubmit = (data: SignInFormData) => {
+    mutation.mutate(data);
+  };
+
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
   return (
     <div className="flex flex-col items-center">
       {isSubmitted ? (
         <div className="flex flex-col gap-5 text-center">
           <h2 className="text-3xl font-bold text-green-500">Successfully Signed In!</h2>
+<<<<<<< HEAD
           <p className="text-sm text-gray-600 mt-2">Redirecting to Home...</p>
+=======
+          <p className="text-sm text-gray-600 mt-2">
+            You can now <a href="/dashboard" className="text-blue-500 hover:underline">Go to Home Page</a>.
+          </p>
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -86,5 +112,8 @@ const SignIn: React.FC = () => {
 };
 
 export default SignIn;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387

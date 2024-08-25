@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .hero-container {
   @apply p-6 rounded-xl bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400; /* Soft mavi tonlarda gradyan */
   @apply shadow-lg border-2 border-blue-300; /* Mavi tonlarında çerçeve ve gölge */
@@ -43,4 +44,79 @@
 
 .tooltip {
   @apply hidden;
+=======
+/* Genel stil ayarları */
+.hero-container {
+  padding: 20px;
+  border-radius: 20px; /* Oval köşeler için */
+  background-color: #f8f9fa; /* Arka plan rengini seçin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+.link-container {
+  display: flex;
+  justify-content: space-around; /* Eşit aralık ile yerleştirir */
+  align-items: center; /* Dikey olarak ortalar */
+}
+
+.hero-link {
+  text-decoration: none;
+  color: #007bff; /* Link rengi */
+  font-size: 16px;
+  display: flex; /* Flex container yapar */
+  align-items: center; /* Yatayda ortalar */
+  transition: color 0.3s ease, transform 0.3s ease; /* Geçiş animasyonu */
+  border-radius: 12px; /* Oval köşeler için */
+  padding: 10px 15px; /* İç boşluk */
+  background-color: #ffffff; /* Arka plan rengi */
+}
+
+.hero-link:hover {
+  color: #0056b3; /* Hover rengi */
+  transform: scale(1.1); /* Hover ile büyütme */
+  text-decoration: none;
+  background-color: #f1f1f1; /* Hover arka plan rengi */
+}
+
+/* Icon'ların dönüşümleri ve geçişler */
+.hero-link .icon {
+  margin-right: 8px; /* İkon ve metin arasına boşluk ekler */
+  transition: transform 0.3s ease;
+}
+
+/* Hotel linki için hover efekti */
+.hero-link.hotel-link {
+  position: relative;
+}
+
+.hero-link.hotel-link:hover .tooltip {
+  display: flex; /* Tooltip içeriği görünsün */
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  z-index: 10;
+  flex-direction: column; /* Alt alta dizme */
+  align-items: center;
+}
+
+.tooltip a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+.tooltip a:hover {
+  text-decoration: underline;
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
 }

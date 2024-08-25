@@ -22,7 +22,11 @@ const Register: React.FC = () => {
       setErrorMessage(null);
     },
     onError: (error: any) => {
+<<<<<<< HEAD
       const errorMsg = error?.response?.data?.message || 'An error occurred. Please try again.';
+=======
+      const errorMsg = error.response?.data?.message || 'An error occurred. Please try again.';
+>>>>>>> 49304292c6ffddd1a62436e9dfc9cc0378c98387
       setErrorMessage(errorMsg);
       setIsSubmitted(false);
     },
